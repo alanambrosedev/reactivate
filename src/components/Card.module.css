@@ -1,0 +1,11 @@
+.card {
+    background-color: #ddd;
+    padding: 20px;
+    border-radius: 20px;
+    margin: 20px;
+    box-shadow: 20px 20px 20px #ccc;
+}
+
+.button {
+    background-color: green;
+}
