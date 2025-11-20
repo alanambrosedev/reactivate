@@ -1,7 +1,9 @@
 import Another from "./components/Another";
 import Card from "./components/Card";
 import Blog from "./components/Blog";
-import { useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import Post from "./components/Post";
+// import { useRef, useState } from "react";
 
 
 export default function App() {
@@ -60,34 +62,53 @@ export default function App() {
   //     <p>Capital of Selected: {selectedStateCapital}</p>
   //   </div>
   // );
-  const facts = {
-    0: "Lorem ipsum dolor",
-    1: "Eos aliquam odit ut perspiciatis voluptates?",
-  };
-  const [factState, setFactState]=useState();
-  const [loading, setLoading] = useState(false);
-  const numberRef = useRef();
+  // const facts = {
+  //   0: "Lorem ipsum dolor",
+  //   1: "Eos aliquam odit ut perspiciatis voluptates?",
+  // };
+  // const [factState, setFactState]=useState();
+  // const [loading, setLoading] = useState(false);
+  // const numberRef = useRef();
 
-  const getFact = async () => {
-    // setFactState(facts[numberRef.current.value]);
-    setLoading(true);
-    const number = numberRef.current.value;
-    const response = await fetch(`https://api.restful-api.dev/objects/${number}`);
-    const text = await response.json();
-    setFactState(text.name);
-    setLoading(false);
+  // const getFact = async () => {
+  //   // setFactState(facts[numberRef.current.value]);
+  //   setLoading(true);
+  //   const number = numberRef.current.value;
+  //   const response = await fetch(`https://api.restful-api.dev/objects/${number}`);
+  //   const text = await response.json();
+  //   setFactState(text.name);
+  //   setLoading(false);
     
-  }
-  if (loading) {
-    return <div>Data is loading from server...</div>
-  }
-  return (
-    <div>
-    <input ref={numberRef} type="number" placeholder="Enter a number" />
-    <button onClick={getFact}>Get Fact</button>
-    <p>{factState}</p>
-  </div>
-  );
-  
+  // }
+  // if (loading) {
+  //   return <div>Data is loading from server...</div>
+  // }
+  // return (
+  //   <div>
+  //   <input ref={numberRef} type="number" placeholder="Enter a number" />
+  //   <button onClick={getFact}>Get Fact</button>
+  //   <p>{factState}</p>
+  // </div>
+  // );
+  const [loading, setLoading] = useState(true);
+  const [posts, setPosts] = useState([]);
+  const loadPosts = async () => {
+    const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+    const data = await res.json();
+    setPosts(data);
+    setLoading(false);
+  };
+  useEffect(() => {
+    loadPosts()
+  }, []);
+//   return <div>
+// {data.map((post) => <h1>{post.title}</h1>)}
+//   </div>
+if (loading) {
+  return <h1>Loading...</h1>
+}
+return <div>
+  {posts.map((post) => <Post key={post.id} title={post.title} body={post.body}/>)}
+</div>
   
 }
