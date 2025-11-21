@@ -1,8 +1,9 @@
 import Another from "./components/Another";
 import Card from "./components/Card";
 import Blog from "./components/Blog";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import Post from "./components/Post";
+import Counter from "./components/Counter";
 // import { useRef, useState } from "react";
 
 
@@ -90,25 +91,31 @@ export default function App() {
   //   <p>{factState}</p>
   // </div>
   // );
-  const [loading, setLoading] = useState(true);
-  const [posts, setPosts] = useState([]);
-  const loadPosts = async () => {
-    const res = await fetch('https://jsonplaceholder.typicode.com/posts');
-    const data = await res.json();
-    setPosts(data);
-    setLoading(false);
-  };
-  useEffect(() => {
-    loadPosts()
-  }, []);
-//   return <div>
-// {data.map((post) => <h1>{post.title}</h1>)}
-//   </div>
-if (loading) {
-  return <h1>Loading...</h1>
-}
-return <div>
-  {posts.map((post) => <Post key={post.id} title={post.title} body={post.body}/>)}
-</div>
+//   const [loading, setLoading] = useState(true);
+//   const [posts, setPosts] = useState([]);
+//   const loadPosts = async () => {
+//     const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+//     const data = await res.json();
+//     setPosts(data);
+//     setLoading(false);
+//   };
+//   useEffect(() => {
+//     loadPosts()
+//   }, []);
+// //   return <div>
+// // {data.map((post) => <h1>{post.title}</h1>)}
+// //   </div>
+// if (loading) {
+//   return <h1>Loading...</h1>
+// }
+// return <div>
+//   {posts.map((post) => <Post key={post.id} title={post.title} body={post.body}/>)}
+// </div>
+
+return (
+  <div>
+    <Counter />
+  </div>
+)
   
 }
