@@ -4,8 +4,9 @@ import Blog from "./components/Blog";
 // import { useEffect, useState } from "react";
 import Post from "./components/Post";
 import Counter from "./components/Counter";
+import CountContext from "./contexts/countContext";
+import CountProvider from "./providers/CountProvider";
 // import { useRef, useState } from "react";
-
 
 export default function App() {
   //  <div>
@@ -16,7 +17,7 @@ export default function App() {
   // const increment = () => {
   //   setCount(count+1);
   //   console.log("incremented", count);
-    
+
   // };
   // const [count, setCount] = useState(2);
   // return  (
@@ -38,7 +39,7 @@ export default function App() {
   // const data = {
   //   Kerala: "Trivandrum",
   //   Karnataka: "Bangalore",
-  //   "Tamil Nadu": "Chennai" 
+  //   "Tamil Nadu": "Chennai"
   // };
 
   // const [selectedState, setSelectedState] = useState("Kerala");
@@ -79,7 +80,7 @@ export default function App() {
   //   const text = await response.json();
   //   setFactState(text.name);
   //   setLoading(false);
-    
+
   // }
   // if (loading) {
   //   return <div>Data is loading from server...</div>
@@ -91,31 +92,32 @@ export default function App() {
   //   <p>{factState}</p>
   // </div>
   // );
-//   const [loading, setLoading] = useState(true);
-//   const [posts, setPosts] = useState([]);
-//   const loadPosts = async () => {
-//     const res = await fetch('https://jsonplaceholder.typicode.com/posts');
-//     const data = await res.json();
-//     setPosts(data);
-//     setLoading(false);
-//   };
-//   useEffect(() => {
-//     loadPosts()
-//   }, []);
-// //   return <div>
-// // {data.map((post) => <h1>{post.title}</h1>)}
-// //   </div>
-// if (loading) {
-//   return <h1>Loading...</h1>
-// }
-// return <div>
-//   {posts.map((post) => <Post key={post.id} title={post.title} body={post.body}/>)}
-// </div>
+  //   const [loading, setLoading] = useState(true);
+  //   const [posts, setPosts] = useState([]);
+  //   const loadPosts = async () => {
+  //     const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+  //     const data = await res.json();
+  //     setPosts(data);
+  //     setLoading(false);
+  //   };
+  //   useEffect(() => {
+  //     loadPosts()
+  //   }, []);
+  // //   return <div>
+  // // {data.map((post) => <h1>{post.title}</h1>)}
+  // //   </div>
+  // if (loading) {
+  //   return <h1>Loading...</h1>
+  // }
+  // return <div>
+  //   {posts.map((post) => <Post key={post.id} title={post.title} body={post.body}/>)}
+  // </div>
 
-return (
-  <div>
-    <Counter />
-  </div>
-)
-  
+  return (
+    <div>
+      <Counter />
+      <Card />
+      <Card />
+    </div>
+  );
 }
