@@ -113,11 +113,13 @@ export default function App() {
   //   {posts.map((post) => <Post key={post.id} title={post.title} body={post.body}/>)}
   // </div>
 
-  return (
-    <div>
-      <Counter />
-      <Card />
-      <Card />
-    </div>
-  );
+  // return (
+  // <div>
+  //   <Counter />
+  //   <Card />
+  //   <Card />
+  // </div>
+
+  // );
+  return <div>Hello World!</div>;
 }

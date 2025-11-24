@@ -1,11 +1,15 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import App from "./App";
-import CountProvider from "./providers/CountProvider";
+import { RouterProvider } from "react-router-dom";
+import router from "./lib/router";
+
+// Render the app
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <CountProvider>
+    {/* If you want global context, wrap with CountProvider */}
+    {/* <CountProvider>
       <App />
-    </CountProvider>
+    </CountProvider> */}
+    <RouterProvider router={router} />
   </StrictMode>
 );
